@@ -14,12 +14,12 @@ else:
   x=float(sys.argv[1])
 
 # get temperature
-request_00S1 = b'\x04\x30\x30\x53\x31\x05'
-ser.write(request_00S1)
+get_temp = b'\x04\x30\x30\x53\x31\x05'
+ser.write(get_temp)
 line = ser.readline()  
-print(line)
+#print(line)
 line2 = line.strip().decode("utf-8")
-print(line2)
+#print(line2)
 b=line2.split()
 print(b[1][:-1])
 c=float(b[1][:-2])
