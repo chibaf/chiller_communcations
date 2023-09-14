@@ -45,16 +45,16 @@ bcc=b1^e0^e1^e2^e3^0x03
 print(hex(bcc))
 set_temp=b'\x04\x30\x30\x02\x53\x31\x20\x20\x20\x20'+bytes(hex(ord(e[0])).encode())+bytes(hex(ord(e[1])).encode())+bytes(hex(ord(e[2])).encode())+bytes(hex(ord(e[3])).encode())+bytes(hex(bcc).encode())
 print(set_temp,type(set_temp))
-#ser.write(S1_25)
-#line = ser.readline()  
-#print(line)
-#line2 = line.strip().decode("utf-8")
-#print(line2) # return code from chiller
+ser.write(set_temp)
+line = ser.readline()  
+print(line)
+line2 = line.strip().decode("utf-8")
+print(line2) # return code from chiller
 #
 # get temperature
-#request_00S1 = b'\x04\x30\x30\x53\x31\x05'
-#ser.write(request_00S1)
-#line = ser.readline()  
-#print(line)
-#line2 = line.strip().decode("utf-8")
-#print(line2)
+get_temp = b'\x04\x30\x30\x53\x31\x05'
+ser.write(get_temp)
+line = ser.readline()  
+print(line)
+line2 = line.strip().decode("utf-8")
+print(line2)
