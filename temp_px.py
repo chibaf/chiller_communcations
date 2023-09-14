@@ -29,8 +29,8 @@ print("###")
 
 # set temperetue +=x
 # set_temp=b'\x04\x30\x30\x02\x53\x31\x20\x20\x20\x20\x33\x34\x2E\x30\x03\x78'
-t1=0x53^0x31^0x20^0x20^0x20^0x20
-print(t1)
+b1=0x53^0x31^0x20^0x20^0x20^0x20
+print(b1)
 e=str(d)
 print(e)
 e0=ord(e[0])
@@ -41,8 +41,10 @@ print(e0)
 print(e1)
 print(e2)
 print(e3)
-set_temp=t1^e0^e1^e2^e3^0x03
-print(hex(set_temp))
+bcc=b1^e0^e1^e2^e3^0x03
+print(hex(bcc))
+set_temp=b'\x04\x30\x30\x02\x53\x31\x20\x20\x20\x20'+bytes(hex(ord(e[0])).encode())+bytes(hex(ord(e[1])).encode())+bytes(hex(ord(e[2])).encode())+bytes(hex(ord(e[3])).encode())+bytes(hex(bcc).encode())
+print(set_temp,type(set_temp))
 #ser.write(S1_25)
 #line = ser.readline()  
 #print(line)
