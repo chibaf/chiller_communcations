@@ -55,18 +55,18 @@ print(bytes(hex(ord(e[3])).encode()))
 print(bytes(hex(bcc).encode()))
 f0=bytes(hex(ord(e[0])).encode())
 f0=str(hex(ord(e[0])))
-f0[0]=b'0x5C'
+#f0[0]=b'0x92'
 print(f0)
-exit()
+#exit()
 f1=bytes(hex(ord(e[1])).encode())
 f2=bytes(hex(ord(e[2])).encode())
 f3=bytes(hex(ord(e[3])).encode())
 f4=bytes(hex(bcc).encode())
-ff=f0+f1+f2+f3+f4
+ff=[f0,f1,f2,f3,f4]
 #print(ff)
 #exit()
 #set_temp=b'0x04'+b'0x30'+b'0x30'+b'0x02'+b'0x53'+b'0x31'+b'0x20'+b'0x20'+b'0x20'+b'0x20'+f0+f1+f2+f3+f4
-set_temp=b'\x04\x30\x30\x02\x53\x31'+b'\x20\x20\x20\x20'#+ff+bytes(hex(bcc).encode())
+set_temp=b'\x04\x30\x30\x02\x53\x31'+b'\x20\x20\x20\x20'+ff+bytes(hex(bcc).encode())
 print(set_temp)#,type(set_temp))
 ser.write(set_temp)
 line = ser.readline()  
